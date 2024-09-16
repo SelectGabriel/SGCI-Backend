@@ -19,13 +19,13 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 @EnableWebSecurity
 public class AuthenticationConfig {
-    private CustomUserDetailsService customUserDetailsService;
+    private UserCustomService userCustomService;
     private final JwtAuthEntryPoint authEntryPoint;
 
     @Autowired
-    public AuthenticationConfig(JwtAuthEntryPoint authEntryPoint, CustomUserDetailsService customUserDetailsService) {
+    public AuthenticationConfig(JwtAuthEntryPoint authEntryPoint, UserCustomService userCustomService) {
         this.authEntryPoint = authEntryPoint;
-        this.customUserDetailsService = customUserDetailsService;
+        this.userCustomService = userCustomService;
     }
 
     @Bean
@@ -40,6 +40,7 @@ public class AuthenticationConfig {
                 )
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
+                                .requestMatchers("/api/auth/logout").authenticated() // Require authentication for logout
                                 .requestMatchers("/api/auth/**").permitAll()
                                 .anyRequest().authenticated()
                 )

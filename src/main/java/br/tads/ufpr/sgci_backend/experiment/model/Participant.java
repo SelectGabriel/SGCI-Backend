@@ -3,12 +3,8 @@ package br.tads.ufpr.sgci_backend.experiment.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
-@Entity
-public class Perticipant {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Participant {
     private long id;
     private String name;
     private String lastName;
@@ -43,11 +39,11 @@ public class Perticipant {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Perticipant() {
+    public Participant() {
         super();
     }
 
-    public Perticipant(long id, String name, String lastName, String phone, String email, String document) {
+    public Participant(long id, String name, String lastName, String phone, String email, String document) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;

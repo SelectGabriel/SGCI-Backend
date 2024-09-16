@@ -40,7 +40,3 @@ Comandos SQL
 docker run -d --name mymysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=senhaUsers -e MYSQL_DATABASE=sgci_users -v /Users/gabrieldacunhaafonso/mySql:/var/lib/mysql mysql:8.0.33
 docker exec -it mymysql mysql -uroot -p
 
-Comandos do REDIS
-docker run -d --name myredis -p 6379:6379 -e REDIS_PASSWORD=senhaRedis redis
-docker exec -it myredis redis-cli
-
