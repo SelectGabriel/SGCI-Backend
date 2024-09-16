@@ -3,6 +3,7 @@ package br.tads.ufpr.sgci_backend.esb.routes;
 import br.tads.ufpr.sgci_backend.authentication.model.UserEntity;
 import br.tads.ufpr.sgci_backend.authentication.service.JWTGenerator;
 import br.tads.ufpr.sgci_backend.authentication.service.JwtBlacklistService;
+import br.tads.ufpr.sgci_backend.authentication.service.SecurityConstants;
 import br.tads.ufpr.sgci_backend.esb.DTO.RegisterDTO;
 import br.tads.ufpr.sgci_backend.esb.orchestrator.UserResearcherRegisterOrchestrator;
 import br.tads.ufpr.sgci_backend.esb.service.AuthRegisterService;
@@ -50,7 +51,7 @@ public class esbAuthRoutesController {
     public ResponseEntity<String> logout(@RequestHeader(name = "Authorization") String authorizationHeader) {
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             String token = authorizationHeader.substring(7); // Remove "Bearer " from the header
-            jwtBlacklistService.blacklistToken(token); // Add token to the blacklist
+            jwtBlacklistService.blacklistToken(token, SecurityConstants.JWT_EXPIRATION); // Add token to the blacklist
             return new ResponseEntity<>("User logged out successfully", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Authorization header missing or invalid", HttpStatus.BAD_REQUEST);
