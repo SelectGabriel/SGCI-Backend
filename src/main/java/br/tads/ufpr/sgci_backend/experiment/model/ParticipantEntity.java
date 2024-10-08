@@ -1,19 +1,43 @@
 package br.tads.ufpr.sgci_backend.experiment.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 import java.time.LocalDate;
 
-public class Participant {
+
+@Entity
+@Table(
+        name = "tb_participantes",
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"document"})}
+)
+public class ParticipantEntity {
     private long id;
     private String name;
     private String lastName;
     private String phone;
     private String email;
+
+    @Column(unique = true)
     private String document;
+
     private String observations;
     private String genre;
     private LocalDate dateOfBirth;
+
+    public ParticipantEntity() {
+        super();
+    }
+    public ParticipantEntity(long id, String name, String lastName, String phone, String email, String document) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.email = email;
+        this.document = document;
+    }
 
     public String getObservations() {
         return observations;
@@ -37,19 +61,6 @@ public class Participant {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
-    }
-
-    public Participant() {
-        super();
-    }
-
-    public Participant(long id, String name, String lastName, String phone, String email, String document) {
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.phone = phone;
-        this.email = email;
-        this.document = document;
     }
 
     public long getId() {

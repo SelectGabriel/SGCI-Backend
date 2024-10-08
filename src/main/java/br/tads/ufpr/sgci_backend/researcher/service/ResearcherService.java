@@ -7,15 +7,16 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class ResearcherService {
 
     private final ResearcherRepository researcherRepository;
 
-    public UserService(ResearcherRepository researcherRepository) {
+    public ResearcherService(ResearcherRepository researcherRepository) {
         this.researcherRepository = researcherRepository;
     }
     public ResearcherEntity createUser(ResearcherEntity person) {
-        return null;
+        researcherRepository.save(person);
+        return person;
     }
     public ResearcherEntity getUserById(Long id) {
         return researcherRepository.findById(id).orElse(null);
