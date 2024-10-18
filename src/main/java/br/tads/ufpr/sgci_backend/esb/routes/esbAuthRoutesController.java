@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/auth")
 public class esbAuthRoutesController {
     private final AuthenticationManager authenticationManager;
-    private JWTGenerator jwtGenerator;
-    private UserResearcherRegisterOrchestrator userResearcherRegisterOrchestrator;
-    private JwtBlacklistService jwtBlacklistService;
+    private final JWTGenerator jwtGenerator;
+    private final UserResearcherRegisterOrchestrator userResearcherRegisterOrchestrator;
+    private final JwtBlacklistService jwtBlacklistService;
 
     @Autowired
     public esbAuthRoutesController(AuthenticationManager authenticationManager,

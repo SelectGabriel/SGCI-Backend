@@ -1,12 +1,6 @@
 package br.tads.ufpr.sgci_backend.experiment.model;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
-
+import jakarta.persistence.*;
 import java.time.LocalDate;
-
 
 @Entity
 @Table(
@@ -14,7 +8,10 @@ import java.time.LocalDate;
         uniqueConstraints = {@UniqueConstraint(columnNames = {"document"})}
 )
 public class ParticipantEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String name;
     private String lastName;
     private String phone;
