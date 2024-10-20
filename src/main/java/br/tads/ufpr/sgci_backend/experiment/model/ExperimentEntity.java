@@ -23,6 +23,7 @@ public class ExperimentEntity {
     @JoinColumn(name = "participant_id", nullable = false) // Foreign Key para o Participant
     private ParticipantEntity participant;
 
+    @Column(name = "experiment_star_date")
     private LocalDateTime experimentStartDate;
     private String observations;
 

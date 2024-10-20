@@ -22,6 +22,8 @@ public class ParticipantEntity {
 
     private String observations;
     private String genre;
+
+    @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
     public ParticipantEntity() {

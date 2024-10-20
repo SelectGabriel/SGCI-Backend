@@ -28,17 +28,13 @@ public class WalkEntity {
     private LocalDateTime dateTime;
 
     // Observações sobre a caminhada
-    @Column(name = "observations", length = 500)
+    @Column(name = "observations")
     private String observations;
 
     // Relacionamento com o experimento (muitas caminhadas para um experimento)
     @ManyToOne
     @JoinColumn(name = "experiment_id", nullable = false)
     private ExperimentEntity experiment;
-
-    // Número da caminhada no experimento (identificar ordem)
-    @Column(name = "walk_order", nullable = false)
-    private int walkOrder;
 
     // Getters e Setters
     public Long getId() {
@@ -95,13 +91,5 @@ public class WalkEntity {
 
     public void setExperiment(ExperimentEntity experiment) {
         this.experiment = experiment;
-    }
-
-    public int getWalkOrder() {
-        return walkOrder;
-    }
-
-    public void setWalkOrder(int walkOrder) {
-        this.walkOrder = walkOrder;
     }
 }
