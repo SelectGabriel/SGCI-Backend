@@ -13,7 +13,7 @@ public class ParticipantEntity {
     private long id;
 
     private String name;
-    private String lastName;
+    private String lastname;
     private String phone;
     private String email;
 
@@ -27,10 +27,24 @@ public class ParticipantEntity {
     public ParticipantEntity() {
         super();
     }
-    public ParticipantEntity(long id, String name, String lastName, String phone, String email, String document) {
+
+    public ParticipantEntity(String name, String lastname, String phone, String email, String document,String observations, String genre, LocalDate dateOfBirth) {
+        super();
+        this.name = name;
+        this.lastname = lastname;
+        this.phone = phone;
+        this.email = email;
+        this.document = document;
+        this.observations = observations;
+        this.genre = genre;
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public ParticipantEntity(long id, String name, String lastname, String phone, String email, String document) {
+        super();
         this.id = id;
         this.name = name;
-        this.lastName = lastName;
+        this.lastname = lastname;
         this.phone = phone;
         this.email = email;
         this.document = document;
@@ -84,12 +98,12 @@ public class ParticipantEntity {
         this.phone = phone;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getEmail() {
@@ -106,5 +120,15 @@ public class ParticipantEntity {
 
     public void setDocument(String document) {
         this.document = document;
+    }
+
+    public boolean hasNullFields() {
+        return this.getName() == null ||
+                this.getLastname() == null ||
+                this.getPhone() == null ||
+                this.getEmail() == null ||
+                this.getDocument() == null ||
+                this.getDateOfBirth() == null ||
+                this.getGenre() == null;
     }
 }

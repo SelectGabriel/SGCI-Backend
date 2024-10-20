@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RestController
 @RequestMapping("/api/researchers")
-public class esbResearcherRoutesController {
+public class EsbResearcherRoutesController {
 
     @GetMapping("/hello")
     public ResponseEntity<String> helloResearcher(){

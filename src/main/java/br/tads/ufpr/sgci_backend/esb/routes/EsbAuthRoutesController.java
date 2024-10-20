@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RestController
 @RequestMapping("/api/auth")
-public class esbAuthRoutesController {
+public class EsbAuthRoutesController {
     private final AuthenticationManager authenticationManager;
     private final JWTGenerator jwtGenerator;
     private final UserResearcherRegisterOrchestrator userResearcherRegisterOrchestrator;
     private final JwtBlacklistService jwtBlacklistService;
 
     @Autowired
-    public esbAuthRoutesController(AuthenticationManager authenticationManager,
+    public EsbAuthRoutesController(AuthenticationManager authenticationManager,
                                    JWTGenerator jwtGenerator, UserResearcherRegisterOrchestrator userResearcherRegisterOrchestrator, JwtBlacklistService jwtBlacklistService) {
         this.authenticationManager = authenticationManager;
         this.jwtGenerator = jwtGenerator;

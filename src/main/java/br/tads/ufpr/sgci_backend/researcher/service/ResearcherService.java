@@ -7,14 +7,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ResearcherService {
+public class ResearcherService{
 
     private final ResearcherRepository researcherRepository;
 
     public ResearcherService(ResearcherRepository researcherRepository) {
         this.researcherRepository = researcherRepository;
     }
-    public ResearcherEntity createUser(ResearcherEntity person) {
+    public ResearcherEntity createUser(ResearcherEntity person){
         researcherRepository.save(person);
         return person;
     }
